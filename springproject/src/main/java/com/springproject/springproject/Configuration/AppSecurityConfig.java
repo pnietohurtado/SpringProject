@@ -1,6 +1,5 @@
-package com.breath.backend.config;
+package com.springproject.springproject.Configuration;
 
-import com.breath.backend.user.infrastructure.security.JWTAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,21 +28,7 @@ public class AppSecurityConfig {
     @org.springframework.beans.factory.annotation.Value("${CORS_ORIGIN_ALLOWED:http://localhost:5174}")
     private String allowedOrigins;
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(csrf -> csrf.disable())
-                .cors(Customizer.withDefaults())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/auth/**").permitAll()
-                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated()
-                )
-                .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
-    }
+
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
