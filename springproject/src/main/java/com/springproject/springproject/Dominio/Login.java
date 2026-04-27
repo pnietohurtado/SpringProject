@@ -1,11 +1,11 @@
-package com.springproject.springproject.Infrastructure.DTO;
+package com.springproject.springproject.Dominio;
 
-public class LoginDTO {
+public class Login {
     private String username;
     private String password;
 
-    public LoginDTO(){}
-    public LoginDTO(String username, String password){
+    public Login(){}
+    public Login(String username, String password){
         this.username = username;
         this.password = password;
     }

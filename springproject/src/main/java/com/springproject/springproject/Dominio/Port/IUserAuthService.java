@@ -15,6 +15,6 @@ public interface IUserAuthService
 {
 
     public HashMap<String, String> login (String id) throws Exception;
-    public ResponseDTO register(ResponseDTO register) throws Exception;
+    public Response register(Response register) throws Exception;
 
 }

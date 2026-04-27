@@ -20,9 +20,7 @@ public class AppSecurityConfig {
 
     @org.springframework.beans.factory.annotation.Value("${CORS_ORIGIN_ALLOWED:http://localhost:5174}")
     private String allowedOrigins;
-
-
-
+    
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
